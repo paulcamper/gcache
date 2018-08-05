@@ -327,7 +327,7 @@ func (c *ARC) GetALL() map[interface{}]interface{} {
 
 // Len returns the number of items in the cache.
 func (c *ARC) Len() int {
-	return len(c.GetALL())
+	return len(c.items)
 }
 
 // Purge is used to completely clear the cache
