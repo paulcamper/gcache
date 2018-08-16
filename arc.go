@@ -327,6 +327,8 @@ func (c *ARC) GetALL() map[interface{}]interface{} {
 
 // Len returns the number of items in the cache.
 func (c *ARC) Len() int {
+	c.mu.RLock()
+	defer c.mu.RUnlock()
 	return len(c.items)
 }
 

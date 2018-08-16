@@ -237,6 +237,8 @@ func (c *SimpleCache) GetALL() map[interface{}]interface{} {
 
 // Returns the number of items in the cache.
 func (c *SimpleCache) Len() int {
+	c.mu.RLock()
+	defer c.mu.RUnlock()
 	return len(c.items)
 }
 

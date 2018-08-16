@@ -246,6 +246,8 @@ func (c *LRUCache) GetALL() map[interface{}]interface{} {
 
 // Returns the number of items in the cache.
 func (c *LRUCache) Len() int {
+	c.mu.RLock()
+	defer c.mu.RUnlock()
 	return len(c.items)
 }
 
